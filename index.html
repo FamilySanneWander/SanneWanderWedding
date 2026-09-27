@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f2e5c4" />
+  <meta name="description" content="A weekend in Sicily — wedding celebration, 10–12 September." />
+  <title>[insert name] & [insert name] — Sicilia</title>
+  <style>
+    :root {
+      --cream: #f2e5c4;
+      --paper: #fff8e9;
+      --tomato: #c84630;
+      --olive: #5c6735;
+      --cobalt: #275aa8;
+      --lemon: #efc84a;
+      --ink: #2d291f;
+      --white: #fffdf7;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .16;
+      z-index: 20;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+    }
+    a { color: inherit; }
+    h1, h2, h3, p { margin-top: 0; }
+    .serif { font-family: Georgia, 'Times New Roman', serif; }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      color: var(--ink);
+      mix-blend-mode: multiply;
+    }
+    nav .mark { font-family: Georgia, serif; font-style: italic; font-weight: 700; }
+    nav .links { display: flex; gap: 18px; }
+    nav a { text-decoration: none; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      text-align: center;
+      padding: 90px 20px 50px;
+      background:
+        radial-gradient(circle at 18% 25%, rgba(239,200,74,.72) 0 10%, transparent 10.5%),
+        radial-gradient(circle at 85% 70%, rgba(39,90,168,.17) 0 13%, transparent 13.5%),
+        var(--cream);
+    }
+    .hero h1 {
+      margin: 8px auto 10px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 400;
+      font-size: clamp(4rem, 12vw, 9.5rem);
+      line-height: .82;
+      letter-spacing: -.06em;
+      max-width: 1100px;
+    }
+    .hero h1 em { color: var(--tomato); font-weight: 400; }
+    .hero .date { font-family: Georgia, serif; font-style: italic; font-size: clamp(1.25rem, 3vw, 2rem); }
+    .scroll { position: absolute; bottom: 24px; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; }
+
+    .intro { padding: 120px 0; }
+    .intro-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 8vw; align-items: start; }
+    .intro h2 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(2.7rem, 6vw, 5.5rem); line-height: .98; }
+    .intro .lead { font-family: Georgia, serif; font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.35; }
+    .doodle { font-size: 4rem; transform: rotate(-8deg); display: inline-block; margin-top: 30px; }
+
+    .photo-placeholder {
+      min-height: 68svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 40px;
+      background: var(--olive);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-placeholder::before,
+    .photo-placeholder::after {
+      content: "";
+      position: absolute;
+      width: 220px; height: 220px;
+      border: 2px solid rgba(255,255,255,.35);
+      border-radius: 50%;
+    }
+    .photo-placeholder::before { left: -90px; top: -70px; }
+    .photo-placeholder::after { right: -80px; bottom: -100px; }
+    .photo-placeholder p { max-width: 600px; font-family: Georgia, serif; font-style: italic; font-size: 1.4rem; }
+
+    .days { background: var(--paper); }
+    .day {
+      min-height: 92svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      border-top: 1px solid rgba(45,41,31,.18);
+    }
+    .day-copy { padding: clamp(55px, 8vw, 120px); display: flex; flex-direction: column; justify-content: center; }
+    .day-number { font-family: Georgia, serif; font-size: clamp(6rem, 15vw, 13rem); line-height: .7; opacity: .13; margin-bottom: 30px; }
+    .day h2 { font-family: Georgia, serif; font-size: clamp(3.3rem, 7vw, 7rem); line-height: .85; margin-bottom: 28px; font-weight: 400; }
+    .day h3 { font-family: Georgia, serif; font-size: 1.8rem; font-style: italic; font-weight: 400; }
+    .day-art { min-height: 460px; display: grid; place-items: center; padding: 40px; text-align: center; }
+    .friday .day-art { background: var(--tomato); color: var(--white); }
+    .saturday .day-art { background: var(--olive); color: var(--white); }
+    .sunday .day-art { background: var(--cobalt); color: var(--white); }
+    .day-art .symbol { font-size: clamp(6rem, 15vw, 12rem); line-height: 1; }
+    .day-art p { font-family: Georgia, serif; font-style: italic; max-width: 390px; }
+    .saturday .day-copy { order: 2; }
+
+    .info { padding: 120px 0; }
+    .info h2, .guide h2, .faq h2 { font-family: Georgia, serif; font-size: clamp(3rem, 7vw, 6rem); line-height: .9; font-weight: 400; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 55px; }
+    .card { border: 1px solid rgba(45,41,31,.35); padding: 32px; min-height: 300px; border-radius: 50% 50% 8px 8px / 28% 28% 8px 8px; }
+    .card h3 { font-family: Georgia, serif; font-size: 2rem; font-weight: 400; }
+    .card a { text-underline-offset: 4px; }
+
+    .guide { background: var(--lemon); padding: 120px 0; }
+    .guide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; }
+    .guide-list { display: grid; gap: 22px; }
+    .guide-item { border-bottom: 1px solid rgba(45,41,31,.35); padding-bottom: 22px; }
+    .guide-item strong { font-family: Georgia, serif; font-size: 1.35rem; }
+
+    .faq { padding: 120px 0; }
+    details { border-top: 1px solid rgba(45,41,31,.35); padding: 24px 0; }
+    details:last-child { border-bottom: 1px solid rgba(45,41,31,.35); }
+    summary { cursor: pointer; font-family: Georgia, serif; font-size: 1.45rem; list-style: none; display: flex; justify-content: space-between; gap: 20px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--tomato); }
+    details[open] summary::after { content: "–"; }
+    details p { max-width: 760px; padding-top: 18px; }
+
+    .rsvp {
+      min-height: 80svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: var(--tomato);
+      color: var(--white);
+      padding: 80px 20px;
+    }
+    .rsvp h2 { font-family: Georgia, serif; font-size: clamp(4.5rem, 12vw, 10rem); line-height: .8; font-weight: 400; margin-bottom: 28px; }
+    .button { display: inline-block; margin-top: 25px; padding: 18px 30px; background: var(--cream); color: var(--ink); text-decoration: none; border-radius: 999px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: transform .2s ease; }
+    .button:hover { transform: translateY(-3px) rotate(-1deg); }
+
+    footer { background: var(--cobalt); color: var(--white); text-align: center; padding: 70px 20px; }
+    footer .ciao { font-family: Georgia, serif; font-style: italic; font-size: clamp(3rem, 8vw, 6rem); }
+
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 760px) {
+      nav .links a:not(:last-child) { display: none; }
+      .intro-grid, .day, .guide-grid { grid-template-columns: 1fr; }
+      .saturday .day-copy { order: initial; }
+      .cards { grid-template-columns: 1fr; }
+      .card { min-height: 230px; }
+      .day-copy { padding: 70px 24px; }
+      .intro, .info, .guide, .faq { padding: 85px 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="mark" href="#top">[insert initials]</a>
+    <div class="links">
+      <a href="#weekend">Il weekend</a>
+      <a href="#travel">Come arrivare</a>
+      <a href="#faq">FAQ</a>
+      <a href="#rsvp">RSVP</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="reveal">
+        <div class="eyebrow">Benvenuti in Sicilia</div>
+        <h1>[insert name] <em>&</em><br>[insert name]</h1>
+        <p class="date">10 — 12 September · [insert year]</p>
+        <p>[insert venue / town], Sicilia</p>
+      </div>
+      <div class="scroll">Scroll into the weekend ↓</div>
+    </section>
+
+    <section class="intro">
+      <div class="wrap intro-grid reveal">
+        <div>
+          <div class="eyebrow">La festa</div>
+          <span class="doodle">☀︎</span>
+        </div>
+        <div>
+          <h2>Three days among the olive trees.</h2>
+          <p class="lead">For one long weekend in September, we're gathering our favourite people on an organic farm in the Sicilian hills.</p>
+          <p>There will be olive trees and long tables, horses and donkeys, too much food, hopefully just enough wine, and almost certainly a few cats wandering through the celebrations.</p>
+          <p><strong>We'd love you to be part of it.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="photo-placeholder">
+      <div class="reveal">
+        <div class="eyebrow">[insert image]</div>
+        <p>Replace this section later with a wide photograph of the farm, the Sicilian landscape, or the two of you.</p>
+      </div>
+    </section>
+
+    <section class="days" id="weekend">
+      <article class="day friday">
+        <div class="day-copy reveal">
+          <div class="day-number">10</div>
+          <div class="eyebrow">Venerdì · Friday</div>
+          <h2>Arrive.</h2>
+          <h3>Benvenuti in Sicilia.</h3>
+          <p>Arrive during the afternoon, settle in, and come find us for an informal evening together.</p>
+          <p><strong>[insert Friday time]</strong><br>[insert Friday location / meeting point]<br>[insert Friday programme details]</p>
+          <p><em>Come as you are. The weekend starts here.</em></p>
+        </div>
+        <div class="day-art"><div><div class="symbol">🍋</div><p>[insert Friday image later — aperitivo, lemons, farm, sunset]</p></div></div>
+      </article>
+
+      <article class="day saturday">
+        <div class="day-copy reveal">
+          <div class="day-number">11</div>
+          <div class="eyebrow">Sabato · Saturday</div>
+          <h2>We get married.</h2>
+          <h3>The big one.</h3>
+          <p>A slow Sicilian morning, followed by the ceremony among the olive trees. Then aperitivo, dinner under the evening sky, and dancing.</p>
+          <p><strong>[insert ceremony time]</strong><br>[insert ceremony location]<br>[insert Saturday programme / dress code]</p>
+        </div>
+        <div class="day-art"><div><div class="symbol">♥</div><p>[insert Saturday image later — olive grove, long table, wedding photograph]</p></div></div>
+      </article>
+
+      <article class="day sunday">
+        <div class="day-copy reveal">
+          <div class="day-number">12</div>
+          <div class="eyebrow">Domenica · Sunday</div>
+          <h2>One more day.</h2>
+          <h3>Swimsuits on.</h3>
+          <p>Sleep in. Then sunglasses out and everyone back together for a long, lazy afternoon by the pool.</p>
+          <p><strong>[insert pool party time]</strong><br>[insert Sunday location]<br>[insert food / transport / departure details]</p>
+          <p><em>Pool · food · music · [insert your own Sunday rule]</em></p>
+        </div>
+        <div class="day-art"><div><div class="symbol">☼</div><p>[insert Sunday image later — pool, blue sky, friends, granita]</p></div></div>
+      </article>
+    </section>
+
+    <section class="info" id="travel">
+      <div class="wrap">
+        <div class="eyebrow">The practical bit</div>
+        <h2 class="reveal">Come arrivare.</h2>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="eyebrow">01 · Fly</div>
+            <h3>Getting to Sicily</h3>
+            <p>We recommend flying to <strong>[insert airport]</strong>.</p>
+            <p>[insert alternative airport and approximate travel times]</p>
+          </article>
+          <article class="card reveal">
+            <div class="eyebrow">02 · Drive</div>
+            <h3>Getting to the farm</h3>
+            <p>[insert whether you recommend hiring a car]</p>
+            <p>[insert driving directions / transfer information / map link]</p>
+          </article>
+          <article class="card reveal">
+            <div class="eyebrow">03 · Sleep</div>
+            <h3>Dove dormire</h3>
+            <p>[insert accommodation recommendation 1]</p>
+            <p>[insert accommodation recommendation 2]</p>
+            <p>[insert booking instructions / deadline]</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide">
+      <div class="wrap guide-grid">
+        <div class="reveal">
+          <div class="eyebrow">Stay a little longer</div>
+          <h2>A tiny Sicily guide.</h2>
+          <p>If you're turning the wedding into a holiday, here are a few places we love—or can't wait to show you.</p>
+        </div>
+        <div class="guide-list reveal">
+          <div class="guide-item"><strong>[insert place]</strong><br>[insert favourite beach / town / restaurant and why]</div>
+          <div class="guide-item"><strong>[insert place]</strong><br>[insert café / market / bar recommendation]</div>
+          <div class="guide-item"><strong>[insert place]</strong><br>[insert day-trip recommendation]</div>
+          <div class="guide-item"><strong>[insert place]</strong><br>[insert something personal rather than touristy]</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="wrap">
+        <div class="eyebrow">Things you might be wondering</div>
+        <h2 class="reveal">Domande?</h2>
+        <div class="reveal">
+          <details><summary>What should I wear?</summary><p>[insert dress code, including practical advice for heat, grass, hills, evening temperature, etc.]</p></details>
+          <details><summary>Can I bring my children?</summary><p>[insert children information]</p></details>
+          <details><summary>What about gifts?</summary><p>[insert gift information]</p></details>
+          <details><summary>I have dietary requirements.</summary><p>[insert how guests should tell you about allergies / dietary requirements]</p></details>
+          <details><summary>Do I need a car?</summary><p>[insert transport advice]</p></details>
+          <details><summary>What should I bring for Sunday?</summary><p>Swimwear, sun protection, and [insert anything else].</p></details>
+          <details><summary>Who can I contact if I have a question?</summary><p>[insert contact name and preferred contact method]</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="rsvp" id="rsvp">
+      <div class="reveal">
+        <div class="eyebrow">The important question</div>
+        <h2>Ci sarai?</h2>
+        <p>Will you be there?</p>
+        <!-- Replace the # below with your Google Form / RSVP URL. -->
+        <a class="button" href="#" target="_blank" rel="noopener">Yes, of course →</a>
+        <p style="margin-top:24px; opacity:.8;">Please reply by [insert RSVP deadline].</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="ciao">A presto, Sicilia ♥</div>
+    <p>[insert name] & [insert name] · 10—12 September [insert year]</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
