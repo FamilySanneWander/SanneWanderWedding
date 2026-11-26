@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f2e5c4" />
+  <meta name="theme-color" content="#FCF4F4" />
   <meta name="description" content="A weekend in Sicily — wedding celebration, 10–12 September." />
   <title>Eva & Jørn are getting married</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&amp;display=swap">
   <style>
+    @font-face { font-family: "Fountain Persona 2"; src: url("fonts/Fountain%20Persona%202%20Demo.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+    /* Invitation palette. Dark blue is an additional accessibility colour. */
     :root {
-      --cream: #f2e5c4;
-      --paper: #fff8e9;
-      --tomato: #c84630;
-      --olive: #5c6735;
-      --cobalt: #275aa8;
-      --lemon: #efc84a;
-      --ink: #2d291f;
-      --white: #fffdf7;
+      --pink: #FCF4F4;
+      --blue: #86A4C7;
+      --green-beige: #FAF9F0;
+      --white-beige: #FFFDF8;
+      --green: #E3E2BD;
+      --ink: #304C6B;
+      --cream: var(--pink);
+      --paper: var(--white-beige);
+      --white: var(--white-beige);
+      --font-body: "Fountain Persona 2", Arial, sans-serif;
+      --font-heading: "Cedarville Cursive", cursive;
       --max: 1180px;
     }
 
@@ -25,7 +31,7 @@
       margin: 0;
       background: var(--cream);
       color: var(--ink);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: var(--font-body);
       line-height: 1.55;
       overflow-x: hidden;
     }
@@ -40,7 +46,7 @@
     }
     a { color: inherit; }
     h1, h2, h3, p { margin-top: 0; }
-    .serif { font-family: Georgia, 'Times New Roman', serif; }
+    .serif { font-family: var(--font-body); }
     .eyebrow {
       text-transform: uppercase;
       letter-spacing: .18em;
@@ -60,7 +66,7 @@
       color: var(--ink);
       mix-blend-mode: multiply;
     }
-    nav .mark { font-family: Georgia, serif; font-style: italic; font-weight: 700; }
+    nav .mark { font-family: var(--font-body); font-style: italic; font-weight: 700; }
     nav .links { display: flex; gap: 18px; }
     nav a { text-decoration: none; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; }
 
@@ -71,28 +77,25 @@
       position: relative;
       text-align: center;
       padding: 90px 20px 50px;
-      background:
-        radial-gradient(circle at 18% 25%, rgba(239,200,74,.72) 0 10%, transparent 10.5%),
-        radial-gradient(circle at 85% 70%, rgba(39,90,168,.17) 0 13%, transparent 13.5%),
-        var(--cream);
+      background: var(--pink);
     }
     .hero h1 {
       margin: 8px auto 10px;
-      font-family: Georgia, 'Times New Roman', serif;
+      font-family: var(--font-body);
       font-weight: 400;
       font-size: clamp(4rem, 12vw, 9.5rem);
       line-height: .82;
       letter-spacing: -.06em;
       max-width: 1100px;
     }
-    .hero h1 em { color: var(--tomato); font-weight: 400; }
-    .hero .date { font-family: Georgia, serif; font-style: italic; font-size: clamp(1.25rem, 3vw, 2rem); }
+    .hero h1 em { color: var(--blue); font-weight: 400; }
+    .hero .date { font-family: var(--font-body); font-style: italic; font-size: clamp(1.25rem, 3vw, 2rem); }
     .scroll { position: absolute; bottom: 24px; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; }
 
     .intro { padding: 120px 0; }
     .intro-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 8vw; align-items: start; }
-    .intro h2 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(2.7rem, 6vw, 5.5rem); line-height: .98; }
-    .intro .lead { font-family: Georgia, serif; font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.35; }
+    .intro h2 { font-family: var(--font-body); font-weight: 400; font-size: clamp(2.7rem, 6vw, 5.5rem); line-height: .98; }
+    .intro .lead { font-family: var(--font-body); font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.35; }
     .doodle { font-size: 4rem; transform: rotate(-8deg); display: inline-block; margin-top: 30px; }
 
     .photo-placeholder {
@@ -101,7 +104,7 @@
       place-items: center;
       text-align: center;
       padding: 40px;
-      background: var(--olive);
+      background: var(--green);
       color: var(--white);
       position: relative;
       overflow: hidden;
@@ -116,7 +119,7 @@
     }
     .photo-placeholder::before { left: -90px; top: -70px; }
     .photo-placeholder::after { right: -80px; bottom: -100px; }
-    .photo-placeholder p { max-width: 600px; font-family: Georgia, serif; font-style: italic; font-size: 1.4rem; }
+    .photo-placeholder p { max-width: 600px; font-family: var(--font-body); font-style: italic; font-size: 1.4rem; }
 
     .days { background: var(--paper); }
     .day {
@@ -124,39 +127,39 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: stretch;
-      border-top: 1px solid rgba(45,41,31,.18);
+      border-top: 1px solid rgba(48,76,107,.18);
     }
     .day-copy { padding: clamp(55px, 8vw, 120px); display: flex; flex-direction: column; justify-content: center; }
-    .day-number { font-family: Georgia, serif; font-size: clamp(6rem, 15vw, 13rem); line-height: .7; opacity: .13; margin-bottom: 30px; }
-    .day h2 { font-family: Georgia, serif; font-size: clamp(3.3rem, 7vw, 7rem); line-height: .85; margin-bottom: 28px; font-weight: 400; }
-    .day h3 { font-family: Georgia, serif; font-size: 1.8rem; font-style: italic; font-weight: 400; }
+    .day-number { font-family: var(--font-body); font-size: clamp(6rem, 15vw, 13rem); line-height: .7; opacity: .13; margin-bottom: 30px; }
+    .day h2 { font-family: var(--font-body); font-size: clamp(3.3rem, 7vw, 7rem); line-height: .85; margin-bottom: 28px; font-weight: 400; }
+    .day h3 { font-family: var(--font-body); font-size: 1.8rem; font-style: italic; font-weight: 400; }
     .day-art { min-height: 460px; display: grid; place-items: center; padding: 40px; text-align: center; }
-    .friday .day-art { background: var(--tomato); color: var(--white); }
-    .saturday .day-art { background: var(--olive); color: var(--white); }
-    .sunday .day-art { background: var(--cobalt); color: var(--white); }
+    .friday .day-art { background: var(--blue); color: var(--white); }
+    .saturday .day-art { background: var(--green); color: var(--white); }
+    .sunday .day-art { background: var(--blue); color: var(--white); }
     .day-art .symbol { font-size: clamp(6rem, 15vw, 12rem); line-height: 1; }
-    .day-art p { font-family: Georgia, serif; font-style: italic; max-width: 390px; }
+    .day-art p { font-family: var(--font-body); font-style: italic; max-width: 390px; }
     .saturday .day-copy { order: 2; }
 
     .info { padding: 120px 0; }
-    .info h2, .guide h2, .faq h2 { font-family: Georgia, serif; font-size: clamp(3rem, 7vw, 6rem); line-height: .9; font-weight: 400; }
+    .info h2, .guide h2, .faq h2 { font-family: var(--font-body); font-size: clamp(3rem, 7vw, 6rem); line-height: .9; font-weight: 400; }
     .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 55px; }
-    .card { border: 1px solid rgba(45,41,31,.35); padding: 32px; min-height: 300px; border-radius: 50% 50% 8px 8px / 28% 28% 8px 8px; }
-    .card h3 { font-family: Georgia, serif; font-size: 2rem; font-weight: 400; }
+    .card { border: 1px solid rgba(48,76,107,.35); padding: 32px; min-height: 300px; border-radius: 50% 50% 8px 8px / 28% 28% 8px 8px; }
+    .card h3 { font-family: var(--font-body); font-size: 2rem; font-weight: 400; }
     .card a { text-underline-offset: 4px; }
 
-    .guide { background: var(--lemon); padding: 120px 0; }
+    .guide { background: var(--green-beige); padding: 120px 0; }
     .guide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; }
     .guide-list { display: grid; gap: 22px; }
-    .guide-item { border-bottom: 1px solid rgba(45,41,31,.35); padding-bottom: 22px; }
-    .guide-item strong { font-family: Georgia, serif; font-size: 1.35rem; }
+    .guide-item { border-bottom: 1px solid rgba(48,76,107,.35); padding-bottom: 22px; }
+    .guide-item strong { font-family: var(--font-body); font-size: 1.35rem; }
 
     .faq { padding: 120px 0; }
-    details { border-top: 1px solid rgba(45,41,31,.35); padding: 24px 0; }
-    details:last-child { border-bottom: 1px solid rgba(45,41,31,.35); }
-    summary { cursor: pointer; font-family: Georgia, serif; font-size: 1.45rem; list-style: none; display: flex; justify-content: space-between; gap: 20px; }
+    details { border-top: 1px solid rgba(48,76,107,.35); padding: 24px 0; }
+    details:last-child { border-bottom: 1px solid rgba(48,76,107,.35); }
+    summary { cursor: pointer; font-family: var(--font-body); font-size: 1.45rem; list-style: none; display: flex; justify-content: space-between; gap: 20px; }
     summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; color: var(--tomato); }
+    summary::after { content: "+"; color: var(--blue); }
     details[open] summary::after { content: "–"; }
     details p { max-width: 760px; padding-top: 18px; }
 
@@ -165,16 +168,16 @@
       display: grid;
       place-items: center;
       text-align: center;
-      background: var(--tomato);
+      background: var(--blue);
       color: var(--white);
       padding: 80px 20px;
     }
-    .rsvp h2 { font-family: Georgia, serif; font-size: clamp(4.5rem, 12vw, 10rem); line-height: .8; font-weight: 400; margin-bottom: 28px; }
+    .rsvp h2 { font-family: var(--font-body); font-size: clamp(4.5rem, 12vw, 10rem); line-height: .8; font-weight: 400; margin-bottom: 28px; }
     .button { display: inline-block; margin-top: 25px; padding: 18px 30px; background: var(--cream); color: var(--ink); text-decoration: none; border-radius: 999px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: transform .2s ease; }
     .button:hover { transform: translateY(-3px) rotate(-1deg); }
 
-    footer { background: var(--cobalt); color: var(--white); text-align: center; padding: 70px 20px; }
-    footer .ciao { font-family: Georgia, serif; font-style: italic; font-size: clamp(3rem, 8vw, 6rem); }
+    footer { background: var(--blue); color: var(--white); text-align: center; padding: 70px 20px; }
+    footer .ciao { font-family: var(--font-body); font-style: italic; font-size: clamp(3rem, 8vw, 6rem); }
 
     .reveal { opacity: 0; transform: translateY(25px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: none; }
@@ -193,6 +196,50 @@
       html { scroll-behavior: auto; }
       .reveal { opacity: 1; transform: none; transition: none; }
     }
+
+    /* Invitation-inspired styling: large headings only use Cedarville. */
+    body { font-size: 1.08rem; line-height: 1.65; }
+    nav { background: var(--pink); mix-blend-mode: normal; border-bottom: 1px solid var(--green); }
+    nav .mark { font-style: normal; }
+    .eyebrow { font-size: .85rem; font-weight: 400; letter-spacing: .13em; }
+    h1, h2, .serif, footer .ciao, .day-number { font-family: var(--font-heading) !important; }
+    .hero h1 { line-height: 1.15; letter-spacing: 0; color: var(--ink); font-size: clamp(4rem, 12vw, 8rem); }
+    .hero h1 em { color: var(--ink); font-style: normal; }
+    .hero .date { font-style: normal; }
+    .hero::after { content: ""; position: absolute; inset: 72px 18px 15px; border: 3px solid var(--green); border-radius: 2% 1% 2% 1% / 1% 2% 1% 2%; pointer-events: none; }
+    .intro { background: var(--white-beige); }
+    .intro h2, .day h2, .info h2, .guide h2, .faq h2, .rsvp h2 { line-height: 1.25; }
+    .intro .lead { font-size: clamp(1.15rem, 2vw, 1.5rem); }
+    .photo-placeholder { background: var(--green); color: var(--ink); }
+    .photo-placeholder p, .day-art p { font-style: normal; }
+    .day { background: var(--blue); color: #172F49; border-top: 2px solid var(--white-beige); }
+    .day-copy { position: relative; }
+    .day-copy::before { content: ""; position: absolute; inset: 18px; border: 2px solid var(--white-beige); pointer-events: none; border-radius: 1% 2% 1% 2%; }
+    .day h3 { font-style: normal; font-size: 1.5rem; }
+    .friday .day-art { background: var(--pink); color: var(--ink); }
+    .saturday .day-art { background: var(--green); color: var(--ink); }
+    .sunday .day-art { background: var(--white-beige); color: var(--ink); }
+    .info { background: var(--green-beige); }
+    .card { background: var(--white-beige); border-color: var(--blue); }
+    .card h3 { font-size: 1.5rem; }
+    .guide { background: var(--green); }
+    .faq { background: var(--white-beige); }
+    .rsvp { background: var(--pink); color: var(--ink); }
+    .button { background: var(--ink); color: var(--white-beige); }
+    footer { background: var(--blue); color: #172F49; }
+    footer .ciao { font-style: normal; line-height: 1.3; }
+    section[id] { scroll-margin-top: 75px; }
+    a:focus-visible, summary:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+    /* Reusable photo and icon classes. See the accompanying guide. */
+    .photo-wide { display: block; width: 100%; height: auto; }
+    .photo-arch { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 50% 50% 0 0 / 35% 35% 0 0; }
+    .photo-polaroid { display: block; width: min(100%, 380px); height: auto; padding: 10px 10px 30px; background: var(--white-beige); box-shadow: 0 5px 15px #304c6b22; transform: rotate(-3deg); margin: 20px auto; }
+    .decoration { display: inline-block; width: var(--icon-size, 100px); max-width: 100%; height: auto; transform: rotate(var(--icon-rotation, 0deg)); vertical-align: middle; }
+    .photo-placeholder.has-photo, .day-art.has-photo { padding: 0; min-height: 0; display: block; }
+    .has-photo > img { display: block; width: 100%; height: 100%; min-height: 320px; object-fit: cover; }
+    .photo-placeholder.has-photo::before, .photo-placeholder.has-photo::after { display: none; }
+    @media (max-width: 760px) { .day-copy::before { inset: 10px; } .day-art { min-height: 280px; } .hero::after { inset: 68px 10px 12px; } }
   </style>
 </head>
 <body>
@@ -231,6 +278,7 @@
       </div>
     </section>
 
+    <!-- FARM PHOTO: replace inner div with an img and add has-photo to section class. -->
     <section class="photo-placeholder">
       <div class="reveal">
         <div class="eyebrow">[insert image]</div>
@@ -246,6 +294,7 @@
           <p>Arrive during the afternoon, settle in, and join us for an informal pizza party.</p>
           <p><strong>18:00</strong><br>Agriresort Leano<br>Above the pool</p>
         </div>
+        <!-- DAY PHOTO: replace inner div with an img and add has-photo to day-art class. -->
         <div class="day-art"><div><div class="symbol">🍋</div><p>[insert Friday image later — aperitivo, lemons, farm, sunset]</p></div></div>
       </article>
 
@@ -256,6 +305,7 @@
           <p>You are free to explore before we kick off with a ceremony in the afternoon, followed by reception, dinner and a party.</p>
           <p><strong>15:30 · Ceremony</strong><br>Hilltop garden<br><strong>16:30 · Reception</strong><br>By the pool<br><strong>19:30 · Dinner</strong><br>In the courtyard<br><strong>22:30 · Party</strong><br>By the pool</p>
         </div>
+        <!-- DAY PHOTO: replace inner div with an img and add has-photo to day-art class. -->
         <div class="day-art"><div><div class="symbol">♥</div><p>[insert Saturday image later — olive grove, long table, wedding photograph]</p></div></div>
       </article>
 
@@ -267,6 +317,7 @@
           <p><strong>From 12:00</strong><br>On the pool deck.<br>Departure when you have to.</p>
           <p><em>Pool · food · music</em></p>
         </div>
+        <!-- DAY PHOTO: replace inner div with an img and add has-photo to day-art class. -->
         <div class="day-art"><div><div class="symbol">☼</div><p>[insert Sunday image later — pool, blue sky, friends, granita]</p></div></div>
       </article>
     </section>
@@ -353,6 +404,7 @@
   </footer>
 
   <script>
+    if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -360,6 +412,7 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    } else { document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')); }
   </script>
 </body>
 </html>
