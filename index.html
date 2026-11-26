@@ -240,6 +240,29 @@
     .has-photo > img { display: block; width: 100%; height: 100%; min-height: 320px; object-fit: cover; }
     .photo-placeholder.has-photo::before, .photo-placeholder.has-photo::after { display: none; }
     @media (max-width: 760px) { .day-copy::before { inset: 10px; } .day-art { min-height: 280px; } .hero::after { inset: 68px 10px 12px; } }
+
+    /* Centred programme and invitation-style typography. */
+    .days { position: relative; background: var(--blue); color: #172F49; padding: 48px 20px; }
+    .days::before { content: ""; position: absolute; inset: 18px; border: 2px solid var(--white-beige); border-radius: 1% 2% 1% 2%; pointer-events: none; }
+    .day { display: block; min-height: 0; border: 0; background: transparent; position: relative; }
+    .day-copy { max-width: 720px; margin: 0 auto; padding: 42px 28px; text-align: center; align-items: center; }
+    .day-copy::before { display: none; }
+    .day-copy p { max-width: 600px; }
+    .day h3 { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.3; margin: 12px 0 24px; font-weight: 400; }
+    .day + .day .day-copy { border-top: 1px solid var(--white-beige); }
+    .hero .date { margin-top: clamp(32px, 5vw, 64px); }
+    .name-connector { display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; color: var(--ink); margin-left: .12em; }
+    .name-connector img { display: block; width: var(--connector-width, 1em); height: auto; max-width: 28vw; }
+    .rsvp .eyebrow { font-size: clamp(1.15rem, 2.5vw, 1.65rem); }
+    .rsvp .rsvp-question { font-size: clamp(3rem, 8vw, 6rem); line-height: 1.3; margin: 18px 0 12px; }
+    /* Optional corner illustrations: insert inside a .day article, outside .day-copy. */
+    .day > .corner-icon { position: absolute; top: var(--icon-top, 24px); right: var(--icon-right, 24px); width: var(--icon-size, 90px); max-width: 12%; height: auto; transform: rotate(var(--icon-rotation, 0deg)); pointer-events: none; }
+    @media (max-width: 760px) {
+      .days { padding: 30px 18px; }
+      .days::before { inset: 10px; }
+      .day-copy { padding: 35px 18px; }
+      .day > .corner-icon { max-width: 9%; right: 4px; }
+    }
   </style>
 </head>
 <body>
@@ -257,7 +280,10 @@
     <section class="hero">
       <div class="reveal">
         <div class="eyebrow">We're getting married!</div>
-        <h1>Eva<em>&</em><br>Jørn</h1>
+        <h1 class="couple-names">Eva<span class="name-connector">&amp;</span><br>Jørn</h1>
+        <!-- To replace the ampersand, replace its span with:
+        <span class="name-connector"><img src="icons/hearts.svg" alt="and"></span>
+        -->
         <p class="date">10 — 12 September 2027</p>
         <p>Agriresort Leano, Sicily</p>
       </div>
@@ -268,7 +294,6 @@
       <div class="wrap intro-grid reveal">
         <div>
           <div class="eyebrow">Our dream</div>
-          <span class="doodle">☀︎</span>
         </div>
         <div>
           <h2>Three days among the olive trees with you.</h2>
@@ -294,8 +319,6 @@
           <p>Arrive during the afternoon, settle in, and join us for an informal pizza party.</p>
           <p><strong>18:00</strong><br>Agriresort Leano<br>Above the pool</p>
         </div>
-        <!-- DAY PHOTO: replace inner div with an img and add has-photo to day-art class. -->
-        <div class="day-art"><div><div class="symbol">🍋</div><p>[insert Friday image later — aperitivo, lemons, farm, sunset]</p></div></div>
       </article>
 
       <article class="day saturday">
@@ -305,8 +328,6 @@
           <p>You are free to explore before we kick off with a ceremony in the afternoon, followed by reception, dinner and a party.</p>
           <p><strong>15:30 · Ceremony</strong><br>Hilltop garden<br><strong>16:30 · Reception</strong><br>By the pool<br><strong>19:30 · Dinner</strong><br>In the courtyard<br><strong>22:30 · Party</strong><br>By the pool</p>
         </div>
-        <!-- DAY PHOTO: replace inner div with an img and add has-photo to day-art class. -->
-        <div class="day-art"><div><div class="symbol">♥</div><p>[insert Saturday image later — olive grove, long table, wedding photograph]</p></div></div>
       </article>
 
       <article class="day sunday">
@@ -317,8 +338,6 @@
           <p><strong>From 12:00</strong><br>On the pool deck.<br>Departure when you have to.</p>
           <p><em>Pool · food · music</em></p>
         </div>
-        <!-- DAY PHOTO: replace inner div with an img and add has-photo to day-art class. -->
-        <div class="day-art"><div><div class="symbol">☼</div><p>[insert Sunday image later — pool, blue sky, friends, granita]</p></div></div>
       </article>
     </section>
 
@@ -389,7 +408,7 @@
     <section class="rsvp" id="rsvp">
       <div class="reveal">
         <div class="eyebrow">The important question:</div>
-        <p>Will you join us?</p>
+        <h2 class="rsvp-question">Will you join us?</h2>
         <!-- Replace the # below with your Google Form / RSVP URL. -->
         <a class="button" href="https://forms.cloud.microsoft/r/EYKwNTXg8R" target="_blank" rel="noopener">Yes, of course →</a>
         <p style="margin-top:24px; opacity:.8;">Please respond by 1st of March 2027.</p>
