@@ -294,6 +294,50 @@
       .card h3 { font-size: 1.75rem; }
       .hero .date { font-size: 1.5rem; }
     }
+    
+/* ===== DECORATIVE ICONS ===== */
+
+/* Recolour decorative icons */
+.coloured-icon {
+    display: inline-block;
+    width: var(--icon-size, 120px);
+    height: var(--icon-size, 120px);
+    background-color: var(--icon-colour, #304C6B);
+
+    -webkit-mask: var(--icon-image) center / contain no-repeat;
+    mask: var(--icon-image) center / contain no-repeat;
+
+    transform: rotate(var(--icon-rotation, 0deg));
+}
+
+/* Allow icon placement within sections */
+main section, .day, footer {
+    position: relative;
+}
+
+/* Freely positioned illustrations */
+.positioned-icon {
+    position: absolute;
+    left: var(--icon-x, 50%);
+    top: var(--icon-y, 50%);
+    transform:
+        translate(-50%, -50%)
+        rotate(var(--icon-rotation, 0deg));
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Adjust illustrations on mobile */
+@media (max-width: 760px) {
+    .positioned-icon {
+        width: calc(var(--icon-size, 120px) * 0.6);
+        height: calc(var(--icon-size, 120px) * 0.6);
+        left: var(--icon-mobile-x, var(--icon-x, 50%));
+        top: var(--icon-mobile-y, var(--icon-y, 50%));
+    }
+}
+
+/* ===== END DECORATIVE ICONS ===== */
   </style>
 </head>
 <body>
