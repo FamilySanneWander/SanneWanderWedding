@@ -263,6 +263,37 @@
       .day-copy { padding: 35px 18px; }
       .day > .corner-icon { max-width: 9%; right: 4px; }
     }
+
+    /* Larger reading text and wider desktop layout. */
+    :root { --max: 1600px; --reading-size: 1.836rem; }
+    body { font-size: var(--reading-size); line-height: 1.5; }
+    .wrap { width: min(calc(100% - 64px), var(--max)); }
+    .intro .lead { font-size: clamp(1.955rem, 3.4vw, 2.55rem); }
+    .photo-placeholder p { font-size: 2.38rem; }
+    .guide-item strong { font-size: 2.295rem; }
+    .day-copy { max-width: 1000px; }
+    .day-copy p { max-width: 850px; }
+    details p { max-width: 1100px; }
+    .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+    .card { padding: clamp(24px, 3vw, 48px); border-radius: 50% 50% 8px 8px / 70px 70px 8px 8px; overflow-wrap: anywhere; }
+    .card > .eyebrow, .card > h3 { text-align: center; }
+    .card > p { text-align: left; }
+    .card h3 { font-size: 2rem; }
+    summary { font-size: 1.8rem; }
+    .hero .date { font-size: clamp(1.5rem, 3vw, 2.4rem); }
+    footer p { overflow-wrap: anywhere; }
+    @media (max-width: 1050px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      :root { --reading-size: 1.4rem; }
+      .wrap { width: calc(100% - 40px); }
+      .intro .lead { font-size: 1.65rem; }
+      .photo-placeholder p { font-size: 1.6rem; }
+      .guide-item strong, summary { font-size: 1.55rem; }
+      .card h3 { font-size: 1.75rem; }
+      .hero .date { font-size: 1.5rem; }
+    }
   </style>
 </head>
 <body>
