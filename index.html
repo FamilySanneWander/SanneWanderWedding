@@ -338,6 +338,163 @@ main section, .day, footer {
 }
 
 /* ===== END DECORATIVE ICONS ===== */
+
+/* Centred wedding names and hearts */
+.hero .couple-names {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    line-height: 1;
+}
+
+.wedding-hearts {
+    --
+/* Photograph underneath Our Dream */
+.intro-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 24px;
+}
+
+/* Reduce the space between photo and text */
+.intro-grid {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 3vw;
+    align-items: start;
+}
+
+/* Mobile layout */
+@media (max-width: 760px) {
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .intro-photo {
+        margin-top: 16px;
+    }
+}
+
+/* Large panoramic photograph with faded edges */
+.landscape-section {
+    background: var(--green);
+    padding: 30px 2.5%;
+    overflow: hidden;
+}
+
+.landscape-photo {
+    display: block;
+    width: 100%;
+    height: 65svh;
+    object-fit: cover;
+    object-position: center;
+
+    -webkit-mask-image: radial-gradient(
+        ellipse 70% 75% at center,
+        black 55%,
+        transparent 100%
+    );
+
+    mask-image: radial-gradient(
+        ellipse 70% 75% at center,
+        black 55%,
+        transparent 100%
+    );
+}
+
+/* Mobile photograph */
+@media (max-width: 760px) {
+    .landscape-section {
+        padding: 15px 3%;
+    }
+
+    .landscape-photo {
+        height: 45svh;
+    }
+}
+/* Responsive programme illustrations */
+.programme-icon {
+    width: min(var(--icon-size, 250px), 24%);
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+/* Place illustrations below the text on smaller screens */
+@media (max-width: 1100px) {
+    .day > .programme-icon {
+        position: relative;
+        display: block;
+        left: auto;
+        top: auto;
+        width: min(45%, 180px);
+        height: auto;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto 30px;
+        transform: rotate(var(--icon-rotation, 0deg));
+    }
+
+    .day:has(> .programme-icon) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .day > .programme-icon {
+        order: 2;
+    }
+
+    .day > .day-copy {
+        order: 1;
+    }
+}
+    
+/* Sicily guide illustration */
+.sicily-guide-icon {
+    display: block;
+    width: 58%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    margin-left: auto;
+    margin-top: -70px;
+    margin-bottom: 45px;
+}
+
+/* Position the introductory paragraph */
+.guide-grid > div:first-child > p {
+    margin-top: 20px;
+}
+
+/* Mobile layout */
+@media (max-width: 760px) {
+    .sicily-guide-icon {
+        width: 75%;
+        margin: 15px auto 30px;
+    }
+
+    .guide-grid > div:first-child > p {
+        margin-top: 15px;
+    }
+}
+/* Final RSVP illustration */
+.rsvp-icon {
+    display: block;
+    width: min(440px, 85%);
+    height: auto;
+    aspect-ratio: 2.4 / 1;
+    margin: 15px auto 0;
+}
+
+/* Mobile RSVP illustration */
+@media (max-width: 760px) {
+    .rsvp-icon {
+        width: min(280px, 85%);
+        margin-top: 20px;
+    }
+}
   </style>
 </head>
 <body>
@@ -352,23 +509,38 @@ main section, .day, footer {
   </nav>
 
   <main id="top">
-    <section class="hero">
-      <div class="reveal">
+<section class="hero">
+    <div class="reveal">
         <div class="eyebrow">We're getting married!</div>
-        <h1 class="couple-names">Eva<span class="name-connector"><img src="icons/AND%20hearts%20w%20bow.svg" alt="and"></span><br>Jørn</h1>
-        <!-- To replace the ampersand, replace its span with:
-        <span class="name-connector"><img src="icons/hearts.svg" alt="and"></span>
-        -->
+
+        <h1 class="couple-names">
+            <span>Eva</span>
+
+            <span class="coloured-icon wedding-hearts"
+                  style="
+                    --icon-image: url('icons/AND%20hearts%20w%20bow.svg');
+                    --icon-colour: #304C6B;
+                  "
+                  role="img"
+                  aria-label="and"></span>
+
+            <span>Jørn</span>
+        </h1>
+
         <p class="date">10 — 12 September 2027</p>
         <p>Agriresort Leano, Sicily</p>
-      </div>
-      <div class="scroll">All information for you below ↓</div>
-    </section>
+    </div>
 
+    <div class="scroll">All information for you below ↓</div>
+</section>
     <section class="intro">
       <div class="wrap intro-grid reveal">
         <div>
           <div class="eyebrow">Our dream</div>
+          <img class="intro-photo"
+     src="images/Three%20days%20couple.JPG"
+     alt="Our wedding in Sicily"
+     loading="lazy">
         </div>
         <div>
           <h2>Three days among the olive trees with you.</h2>
@@ -379,15 +551,25 @@ main section, .day, footer {
     </section>
 
     <!-- FARM PHOTO: replace inner div with an img and add has-photo to section class. -->
-    <section class="photo-placeholder">
-      <div class="reveal">
-        <div class="eyebrow">[insert image]</div>
-        <p>Replace this section later with a wide photograph of the farm, the Sicilian landscape, or the two of you.</p>
-      </div>
-    </section>
+<section class="landscape-section">
+    <img class="landscape-photo"
+         src="images/wideLeano.jpeg"
+         alt="The Sicilian landscape"
+         loading="lazy">
+</section>
 
     <section class="days" id="weekend">
       <article class="day friday">
+        <span class="coloured-icon positioned-icon programme-icon"
+      style="
+        --icon-image: url('icons/FRIDAY%20pizza.svg');
+        --icon-colour: #E3E2BD;
+        --icon-size: 250px;
+        --icon-rotation: 0deg;
+        --icon-x: 80%;
+        --icon-y: 70%;
+      "
+      aria-hidden="true"></span>
         <div class="day-copy reveal">
           <div class="eyebrow">The Day Before</div>
           <h3>Friday 10 September 2027</h3>
@@ -397,6 +579,16 @@ main section, .day, footer {
       </article>
 
       <article class="day saturday">
+        <span class="coloured-icon positioned-icon programme-icon"
+      style="
+        --icon-image: url('icons/SATURDAY%20bird%20carrying%20rings.svg');
+        --icon-colour: #E3E2BD;
+        --icon-size: 280px;
+        --icon-rotation: 0deg;
+        --icon-x: 20%;
+        --icon-y: 68%;
+      "
+      aria-hidden="true"></span>
         <div class="day-copy reveal">
           <div class="eyebrow">The Wedding Day</div>
           <h3>Saturday 11 September 2027</h3>
@@ -406,6 +598,16 @@ main section, .day, footer {
       </article>
 
       <article class="day sunday">
+        <span class="coloured-icon positioned-icon programme-icon"
+      style="
+        --icon-image: url('icons/SUNDAY%20bikini.svg');
+        --icon-colour: #E3E2BD;
+        --icon-size: 260px;
+        --icon-rotation: 0deg;
+        --icon-x: 83%;
+        --icon-y: 72%;
+      "
+      aria-hidden="true"></span>
         <div class="day-copy reveal">
           <div class="eyebrow">The Day After</div>
           <h3>Sunday 12 September 2027</h3>
@@ -450,6 +652,13 @@ main section, .day, footer {
         <div class="reveal">
           <div class="eyebrow">Stay a little longer</div>
           <h2>A tiny Sicily guide.</h2>
+          <span class="coloured-icon sicily-guide-icon"
+      style="
+        --icon-image: url('icons/SICILY cat hearts.svg');
+        --icon-colour: #304C6B;
+        --icon-rotation: 0deg;
+      "
+      aria-hidden="true"></span>
           <p>If you're turning the wedding into a holiday, here are a few places we love—or can't wait to show you.</p>
         </div>
         <div class="guide-list reveal">
@@ -487,6 +696,13 @@ main section, .day, footer {
         <!-- Replace the # below with your Google Form / RSVP URL. -->
         <a class="button" href="https://forms.cloud.microsoft/r/EYKwNTXg8R" target="_blank" rel="noopener">Yes, of course →</a>
         <p style="margin-top:24px; opacity:.8;">Please respond by 1st of March 2027.</p>
+        <span class="coloured-icon rsvp-icon"
+      style="
+        --icon-image: url('icons/YES heart locket.svg');
+        --icon-colour: #304C6B;
+        --icon-rotation: 0deg;
+      "
+      aria-hidden="true"></span>
       </div>
     </section>
   </main>
